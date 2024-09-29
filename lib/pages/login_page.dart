@@ -1,13 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/components/my_button.dart';
 import 'package:food_delivery_app/components/my_textfield.dart';
+import 'package:food_delivery_app/pages/home_page.dart';
+import 'package:food_delivery_app/pages/register_page.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  final void Function()? onTap;
+  LoginPage({super.key, required this.onTap});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
+
   final TextEditingController passwordController = TextEditingController();
 
-  LoginPage({super.key});
+  void login(){
+    // handle the authentication
 
+    // after successfully authenticating navigate to the home page
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +59,9 @@ class LoginPage extends StatelessWidget {
             MyTextfield(
                 controller: passwordController,
                 hintText: "Password",
-                isObscureText: true),
+                isObscureText: true,
+                togglePasswordShowIcon: true,
+            ),
             SizedBox(
               height: 8,
             ),
@@ -63,7 +80,9 @@ class LoginPage extends StatelessWidget {
             ),
             MyButton(
               text: "Sign in",
-              onTap: () {},
+              onTap: () {
+                login();
+              },
             ),
             SizedBox(
               height: 25,
@@ -80,12 +99,15 @@ class LoginPage extends StatelessWidget {
                 SizedBox(
                   width: 5,
                 ),
-                Text(
-                  "Register now!",
-                  style: TextStyle(
-                      color: Theme.of(context).colorScheme.inversePrimary,
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold),
+                GestureDetector(
+                  onTap: widget.onTap,
+                  child: Text(
+                    "Register now!",
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.inversePrimary,
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
               ],
             )
