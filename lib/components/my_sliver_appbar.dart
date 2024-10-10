@@ -9,7 +9,8 @@ class MySliverAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      expandedHeight: 340,
+
+      expandedHeight: 390,
       collapsedHeight: 120,
       centerTitle: true,
       floating: false,
@@ -22,10 +23,10 @@ class MySliverAppbar extends StatelessWidget {
       title: Text("Sunset Dinner"),
       flexibleSpace: FlexibleSpaceBar(
         background: Padding(
-          padding: const EdgeInsets.only(bottom: 50.0),
+          padding: const EdgeInsets.only(bottom: 80.0),
           child: child,
         ),
-        // title: title,
+        title: title,
         centerTitle: true,
         titlePadding: EdgeInsets.only(left: 0, right: 0, top: 0),
       ),
