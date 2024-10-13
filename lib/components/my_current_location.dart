@@ -20,7 +20,6 @@ class MyCurrentLocation extends StatelessWidget {
 
       ],
     ));
-
   }
 
   @override
@@ -31,7 +30,6 @@ class MyCurrentLocation extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children:  [
           Text("Deliver Now", style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 16),),
-
           GestureDetector(
             onTap: ()=> openLocationSearchBox(context),
             child: Row(

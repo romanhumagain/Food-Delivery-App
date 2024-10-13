@@ -27,7 +27,6 @@ class MySliverAppbar extends StatelessWidget {
           child: child,
         ),
         title: title,
-        centerTitle: true,
         titlePadding: EdgeInsets.only(left: 0, right: 0, top: 0),
       ),
     );

@@ -42,15 +42,17 @@ class _MyTextfieldState extends State<MyTextfield> {
         controller: widget.controller,
         obscureText: _isObscure,
         decoration: InputDecoration(
-            suffixIcon: widget.togglePasswordShowIcon==true ?  GestureDetector(
-              onTap: togglePasswordShow,
-              child: Icon(
-                _isObscure
-                    ? Icons.visibility
-                    : Icons.visibility_off, // Icon changes
-                color: Theme.of(context).colorScheme.inversePrimary,
-              ),
-            ):null,
+            suffixIcon: widget.togglePasswordShowIcon == true
+                ? GestureDetector(
+                    onTap: togglePasswordShow,
+                    child: Icon(
+                      _isObscure
+                          ? Icons.visibility
+                          : Icons.visibility_off, // Icon changes
+                      color: Theme.of(context).colorScheme.inversePrimary,
+                    ),
+                  )
+                : null,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12.0),
             ),
@@ -65,7 +67,8 @@ class _MyTextfieldState extends State<MyTextfield> {
             ),
             hintText: widget.hintText,
             hintStyle:
-                TextStyle(color: Theme.of(context).colorScheme.inversePrimary)),
+                TextStyle(color: Theme.of(context).colorScheme.inversePrimary)
+        ),
       ),
     );
   }
