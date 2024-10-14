@@ -8,6 +8,7 @@ import 'package:food_delivery_app/components/my_sliver_appbar.dart';
 import 'package:food_delivery_app/components/my_tab_bar.dart';
 import 'package:food_delivery_app/models/food_models.dart';
 import 'package:food_delivery_app/models/resturant_models.dart';
+import 'package:food_delivery_app/pages/food_page.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -47,7 +48,11 @@ class _HomePageState extends State<HomePage>
       return ListView.builder(
           itemCount: categoryMenu.length,
           itemBuilder: (context, index) {
-            return MyFoodTile(name: categoryMenu[index].name, description: categoryMenu[index].description, imageUrl: categoryMenu[index].imagePath, price: categoryMenu[index].price,);
+            return GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>FoodPage(food: categoryMenu[index])));
+              },
+                child: MyFoodTile(name: categoryMenu[index].name, description: categoryMenu[index].description, imageUrl: categoryMenu[index].imagePath, price: categoryMenu[index].price,));
           });
     }).toList();
   }
